@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--说明react.development.js必须在react-dom.development.js之前引入-->
+    <!--react的核心库-->
+    <script type="text/javascript" src="../commonjs/react.development.js"></script>
+    <!--react用来操作dom的-->
+    <script type="text/javascript" src="../commonjs/react-dom.development.js"></script>
+</head>
+<body>
+<!--申明一个容器-->
+<div id="helloworld">
+</div>
+
+<!--此处type的值一定是text/babel-->
+<script type="text/javascript">
+    //创建虚拟dom
+    const vdom = React.createElement("h1",{id: "vdom"},"这是js创建的虚拟dom");
+    //渲染虚拟dom到页面
+    ReactDOM.render(vdom, document.getElementById("helloworld"));
+</script>
+</body>
+</html>

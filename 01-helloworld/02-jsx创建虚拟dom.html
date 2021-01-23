@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsx创建虚拟dom</title>
+    <!--说明react.development.js必须在react-dom.development.js之前引入-->
+    <!--react的核心库-->
+    <script type="text/javascript" src="../commonjs/react.development.js"></script>
+    <!--react用来操作dom的-->
+    <script type="text/javascript" src="../commonjs/react-dom.development.js"></script>
+    <!--babel用来将jsx转换成js-->
+    <script type="text/javascript" src="../commonjs/babel.min-7.12.12.js"></script>
+</head>
+<body>
+<!--申明一个容器-->
+<div id="helloworld">
+</div>
+
+<!--此处type的值一定是text/babel-->
+<script type="text/babel">
+    //创建虚拟dom
+    const vdom = <h1 id="vdom">这是jsx创建的虚拟dom</h1>/*此处是虚拟dom,不能写引号*/
+    //渲染虚拟dom到页面
+    ReactDOM.render(vdom, document.getElementById("helloworld"));
+</script>
+</body>
+</html>

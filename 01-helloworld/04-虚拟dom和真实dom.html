@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--说明react.development.js必须在react-dom.development.js之前引入-->
+    <!--react的核心库-->
+    <script type="text/javascript" src="../commonjs/react.development.js"></script>
+    <!--react用来操作dom的-->
+    <script type="text/javascript" src="../commonjs/react-dom.development.js"></script>
+</head>
+<body>
+<!--申明一个容器-->
+<div id="helloworld">
+</div>
+
+<!--此处type的值一定是text/babel-->
+<script type="text/javascript">
+    //创建虚拟dom
+    const vdom = React.createElement("h1",{id: "vdom"},"虚拟dom和真实dom");
+    //渲染虚拟dom到页面
+    ReactDOM.render(vdom, document.getElementById("helloworld"));
+    //真实dom
+    const tdom = document.getElementById("helloworld");
+    console.log(vdom);
+    console.log(tdom);
+    debugger;
+    /*
+     虚拟dom说明：
+       1.虚拟dom本质是一个一般的Object类型的对象
+       2.虚拟dom比真实dom轻,因为虚拟dom实在react内部使用，所以不需要真实dom那么多的属性
+       3.虚拟dom最终会被react转换成真实dom，渲染在页面上。
+     */
+</script>
+</body>
+</html>
