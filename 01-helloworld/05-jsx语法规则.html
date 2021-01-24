@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-jsx语法规则</title>
+    <!--说明react.development.js必须在react-dom.development.js之前引入-->
+    <!--react的核心库-->
+    <script type="text/javascript" src="../commonjs/react.development.js"></script>
+    <!--react用来操作dom的-->
+    <script type="text/javascript" src="../commonjs/react-dom.development.js"></script>
+    <!--babel用来将jsx转换成js-->
+    <script type="text/javascript" src="../commonjs/babel.min-7.12.12.js"></script>
+    <style>
+        .ulStyle{
+            background-color: red;
+            font-size: ;
+        }
+    </style>
+</head>
+<body>
+<!--申明一个容器-->
+<div id="helloworld">
+</div>
+
+<!--此处type的值一定是text/babel-->
+<script type="text/babel">
+    const jsxid = 'vid';
+    const contentOne = '定义虚拟DOM时,不能加引号';
+    const contentTwo = '标签中要使用js表达式时要用{}';
+    const contentThree = '样式的类名指定不能用class。要用className';
+    const contentFour = '内联样式,要用style={{key:value}}的形式去写';
+    const contentFive = '虚拟dom定义时只能有一个根标签';
+    const contentSix = '标签必须闭合';
+    const contentSeven = '标签首字母若是小写字母开头,则将该标签转为html中同名元素,若html中无该标签对应的同名元素，则报错';
+    const contentEight = '标签首字母若是大写字母开头,react就去渲染对应的组件,若组件没有定义,则报错。';
+    //创建虚拟dom
+    const vdom = (
+        <div>
+            <ul id="{jsxid}" className="ulStyle">
+                <li style={{fontSize: '19px'}}>{contentOne}</li>
+                <li>{contentTwo}</li>
+                <li style={{fontSize: '19px'}}>{contentThree}</li>
+                <li>{contentFour}</li>
+                <li style={{fontSize: '19px'}}>{contentFive}</li>
+                <li>{contentSix}</li>
+                <li style={{fontSize: '19px'}}>{contentSeven}</li>
+                <li>{contentEight}</li>
+            </ul>
+            <span>以上为jsx的语法规则</span>
+        </div>
+    )
+    //渲染虚拟dom到页面
+    ReactDOM.render(vdom, document.getElementById("helloworld"));
+</script>
+</body>
+</html>
