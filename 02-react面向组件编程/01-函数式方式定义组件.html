@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-函数式方式定义组件</title>
+    <!--说明react.development.js必须在react-dom.development.js之前引入-->
+    <!--react的核心库-->
+    <script type="text/javascript" src="../commonjs/react.development.js"></script>
+    <!--react用来操作dom的-->
+    <script type="text/javascript" src="../commonjs/react-dom.development.js"></script>
+    <!--babel用来将jsx转换成js-->
+    <script type="text/javascript" src="../commonjs/babel.min-7.12.12.js"></script>
+</head>
+<body>
+<div id="functionComponent">
+</div>
+<script type="text/babel">
+    //函数式方式定义组件
+    function MyComponent() {
+        return <h1>函数式方式定义组件(适用于简单组件)</h1>
+    };
+    ReactDOM.render(<MyComponent/>,document.getElementById("functionComponent"));
+    /*
+   ReactDOM.render方法的作用:
+   1.React解析组件标签,查找MyComponent组件
+   2.发现MyComponent组件是通过函数定义的。随后调用该函数
+   将返回的虚拟dom转换为真实dom.并呈现在页面上。
+    */
+</script>
+</body>
+</html>
